@@ -1,0 +1,19 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "tskluzac@macalester.edu",
+    "longName": "Sleep 5.0 Button",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "3",
+    "shortName": "Sleep 5.0 Button",
+    "uuid": "3e922af8-0615-45ca-9b28-75178415ab06",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
