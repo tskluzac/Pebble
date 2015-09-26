@@ -4,14 +4,14 @@
         ""
     ],
     "companyName": "tskluzac@macalester.edu",
-    "longName": "Sleep 5.0 Button",
+    "longName": "Sleep 5.0 Accelerometer ",
     "projectType": "native",
     "resources": {
         "media": []
     },
     "sdkVersion": "3",
-    "shortName": "Sleep 5.0 Button",
-    "uuid": "3e922af8-0615-45ca-9b28-75178415ab06",
+    "shortName": "Sleep 5.0 Accelerometer ",
+    "uuid": "788ed624-e9fd-4e62-94bc-9aaceb349147",
     "versionLabel": "1.0",
     "watchapp": {
         "watchface": false
