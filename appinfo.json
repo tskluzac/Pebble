@@ -4,13 +4,24 @@
         ""
     ],
     "companyName": "tskluzac@macalester.edu",
-    "longName": "Sleep 5.0 Accelerometer ",
+    "longName": "myBivy Pebble",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/moon.png",
+                "menuIcon": true,
+                "name": "moon",
+                "type": "png"
+            }
+        ]
     },
     "sdkVersion": "3",
-    "shortName": "Sleep 5.0 Accelerometer ",
+    "shortName": "myBivy",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
     "uuid": "788ed624-e9fd-4e62-94bc-9aaceb349147",
     "versionLabel": "1.0",
     "watchapp": {

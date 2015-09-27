@@ -5,10 +5,11 @@
  * either modes of operation of the accelerometer.
  */
 
+//Required to program for all versions of the Pebble Watch. 
 #include <pebble.h>
-
 #define TAP_NOT_DATA true
 
+// Static variable declaration and pointer.
 static Window *s_main_window;
 static TextLayer *s_output_layer;
 
@@ -32,23 +33,30 @@ static void tap_handler(AccelAxisType axis, int32_t direction) {
   switch (axis) {
   case ACCEL_AXIS_X:
     if (direction > 0) {
-      text_layer_set_text(s_output_layer, "Perturbation");
+      text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+      text_layer_set_text(s_output_layer, "Rest Well.\nWe'll see you tomorrow");
     } else {
-      text_layer_set_text(s_output_layer, "Perturbation");
+      text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+      text_layer_set_text(s_output_layer, "Rest Well.\nWe'll see you tomorrow!");
     }
     break;
   case ACCEL_AXIS_Y:
     if (direction > 0) {
-      text_layer_set_text(s_output_layer, "Perturbation");
+      text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+      text_layer_set_text(s_output_layer, "Rest Well.\nWe'll see you tomorrow!");
     } else {
-      text_layer_set_text(s_output_layer, "Perturbation");
+       text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+      text_layer_set_text(s_output_layer, "Rest Well.\nWe'll see you tomorrow!");
     }
     break;
   case ACCEL_AXIS_Z:
     if (direction > 0) {
-      text_layer_set_text(s_output_layer, "Perturbation");
+      text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+      text_layer_set_text(s_output_layer, "Rest Well.\nWe'll see you tomorrow!");
     } else {
-      text_layer_set_text(s_output_layer, "Perturbation");
+      text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+      text_layer_set_text(s_output_layer, "Rest Well.\nWe'll see you tomorrow!");
+    
     }
     break;
   }
@@ -60,8 +68,8 @@ static void main_window_load(Window *window) {
 
   // Create output TextLayer
   s_output_layer = text_layer_create(GRect(5, 0, window_bounds.size.w - 10, window_bounds.size.h));
-  text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24));
-  text_layer_set_text(s_output_layer, "No data yet.");
+  text_layer_set_font(s_output_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+  text_layer_set_text(s_output_layer, "Welcome to myBivy! Please shake watch to calibrate.");
   text_layer_set_overflow_mode(s_output_layer, GTextOverflowModeWordWrap);
   layer_add_child(window_layer, text_layer_get_layer(s_output_layer));
 }
@@ -98,10 +106,10 @@ static void init() {
 }
 
 
-
+//Denit terminates and unsubscribes from process and data from init. 
 static void deinit() {
   // Destroy main Window
-    text_layer_set_text(s_output_layer, "Restful.");
+    text_layer_set_text(s_output_layer, "");
   window_destroy(s_main_window);
 
   if (TAP_NOT_DATA) {
@@ -111,6 +119,7 @@ static void deinit() {
   }
 }
 
+//Main function - looks simple, but these 5 lines run the whole pebble watch program. 
 int main(void) {
   init();
   app_event_loop();
