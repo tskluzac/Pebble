@@ -18,13 +18,21 @@ static void data_handler(AccelData *data, uint32_t num_samples) {
   static char s_buffer[128];
 
   // Compose string of all data
+  
   snprintf(s_buffer, sizeof(s_buffer), 
     "N X,Y,Z\n0 %d,%d,%d\n1 %d,%d,%d\n2 %d,%d,%d", 
     data[0].x, data[0].y, data[0].z, 
     data[1].x, data[1].y, data[1].z, 
     data[2].x, data[2].y, data[2].z
   );
+  
+  DataLoggingSessionRef logging_session = data_logging_create(0x1234, DATA_LOGGING_INT, num_samples, false);
+  data_logging_log(logging_session, &data, num_samples);
+  data_logging_finish(logging_session);
+  
+  //DataLoggingResult r = data_logging_log(my_data_log, data, num_samples);
 
+  
   //Show the data
   text_layer_set_text(s_output_layer, s_buffer);
 }
@@ -83,7 +91,7 @@ static void main_window_unload(Window *window) {
 ///***** Init, Deinit, and Main Clauses*******/////
 static void init() {
   // Create main Window
-  
+    //DataLoggingSessionRef logging_session = data_logging_create(0x1234, DATA_LOGGING_UINT, 4, false);
   s_main_window = window_create();
   window_set_window_handlers(s_main_window, (WindowHandlers) {
     .load = main_window_load,
@@ -98,6 +106,7 @@ static void init() {
   } else {
     // Subscribe to the accelerometer data service
     int num_samples = 3;
+    
     accel_data_service_subscribe(num_samples, data_handler);
 
     // Choose update rate
